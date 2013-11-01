@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PWSVAppDelegate.h"
+#import "PWBAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([PWSVAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([PWBAppDelegate class]));
     }
 }

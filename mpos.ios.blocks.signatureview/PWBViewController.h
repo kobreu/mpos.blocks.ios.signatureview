@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PWSVViewController : UIViewController
+@interface PWBViewController : UIViewController
 
 @end
