@@ -6,18 +6,23 @@
 //  Copyright (c) 2013 payworks. All rights reserved.
 //
 
-#import "PWSVViewController.h"
+#import "PWBViewController.h"
+#import "PWBSignatureView.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface PWSVViewController ()
+@interface PWBViewController ()
 
 @end
 
-@implementation PWSVViewController
+@implementation PWBViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    PWBSignatureView* signatureView = [[PWBSignatureView alloc]initWithFrame:CGRectMake(0, 0, self.view.layer.frame.size.width, self.view.layer.frame.size.height)];
+    [self.view addSubview:signatureView];
 }
 
 - (void)didReceiveMemoryWarning
