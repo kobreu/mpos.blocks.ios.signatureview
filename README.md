@@ -19,9 +19,6 @@ To use the SignatureView in your project, you should have an Xcode project with 
     platform :ios, '6.1'
     pod 'PWBSignatureView', '~> 0.2.1'
 
-#credit guesture+linedrawer
-#ios7 storyboard
-
 ### Use the predefined signature screen
 
 ![signature view](http://thpnetz.de/pw/signature.png "Signature View")
