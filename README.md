@@ -1,6 +1,6 @@
 # payworks payment blocks
 
-Kickstart your development of iOS payment applications with often-used payment application components by payworks! Payworks payment blocks are free-to-use UI components such as fields for capturing customer signatures, … (more to come!) taking the programming burden out of your hands and letting you focus on creating awesome applications.
+Kickstart your development of iOS payment applications with often-used payment application components by payworks! payworks payment blocks are free-to-use UI components such as fields for capturing customer signatures, … (more to come!) taking the programming burden out of your hands and letting you focus on creating awesome applications.
 
 The payment blocks are made available on our CocoaPod podspec repository. To use the payment blocks, add 
 http://github.com/thmp/podspecs.git
@@ -10,16 +10,15 @@ as a custom pod repository. If you want to add it using the name 'pwb', you coul
 
 ## SignatureView
 
-The SignatureView enables you to capture a customers signature drawn on the touch screen of an iOS device and receive it as an UIImage. The SignatureView can either be integrated as an UIView in your existing controller or presented modally using the predefined signature controller.
+The SignatureView enables you to capture a customer's signature drawn on the touch screen of an iOS device and receive it as an UIImage. The SignatureView can either be integrated as an UIView in your existing controller or presented modally using the predefined signature controller.
 
 ### Prepare your project
 
-To use the SignatureView in your project, you should have an Xcode project with CocoaPods available. Make sure you have added the payworks payment blocks specs repository. Then, in your podfile, add the dependency
+To use the SignatureView in your project, you should have an Xcode project with CocoaPods (http://cocoapods.org) available. Make sure you have added the payworks payment blocks specs repository. Then, create your podfile for the dependencies 
 
     platform :ios, '6.1'
     pod 'PWBSignatureView', '~> 0.2.1'
 
-#link cocoa
 #credit guesture+linedrawer
 #ios7 storyboard
 
@@ -99,3 +98,9 @@ By extending PWBSignatureFieldViewController, you can now access the following m
 - (void)clearSignature;
 - (UIImage*)signature;
 - (void)tearDownSignatureField;
+
+## Credits
+
+The OpenGL graphics for displaying the signature in real time is handled by the Cocos2d framework. (http://www.cocos2d-iphone.org)
+
+The signature drawing heavily depends on Krzysztof Zablockis smooth drawing library for Cocos2d and his CCNode+SFGestureRecognizer category. Credits to the drawing go to him. Check out his blog at http://merowing.info and the github project of the smooth drawing library at https://github.com/krzysztofzablocki/smooth-drawing
