@@ -98,6 +98,6 @@ By extending PWBSignatureFieldViewController, you can now access the following m
 
 ## Credits
 
-The OpenGL graphics for displaying the signature in real time is handled by the Cocos2d framework. (http://www.cocos2d-iphone.org)
+The OpenGL graphics for displaying the signature in real time are handled by the Cocos2d framework. (http://www.cocos2d-iphone.org)
 
 The signature drawing heavily depends on Krzysztof Zablockis smooth drawing library for Cocos2d and his CCNode+SFGestureRecognizer category. Credits to the drawing go to him. Check out his blog at http://merowing.info and the github project of the smooth drawing library at https://github.com/krzysztofzablocki/smooth-drawing
