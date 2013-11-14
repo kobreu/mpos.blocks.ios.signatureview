@@ -24,34 +24,38 @@ To use the SignatureView in your project, you should have an Xcode project with 
 
 To start right away, you can use the predefined view controller which shows a signature screen with some information to the user. To capture a signature, create a PWBSignatureViewController instance first.
 
-    PWBSignatureViewController* signatureViewController = [[PWBSignatureViewController alloc]init];
+```objectivec
+PWBSignatureViewController* signatureViewController = [[PWBSignatureViewController alloc]init];
+```
 
 Now, customize logo, title, amount and text beneath the signature line to match your application.
 
-```
+```objectivec
 signatureViewController.merchantName = @"Fruit Shop";
-    signatureViewController.merchantLogo = [UIImage imageNamed:@"merchantFruit.png"];
-    signatureViewController.amountText = @"5.99 €";
-    signatureViewController.signatureText = @"Signature";
-    signatureViewController.signatureColor = [UIColor darkGrayColor];
-    signatureViewController.payButtonText = @"Pay now";
-    signatureViewController.cancelButtonText = @"Cancel";
+signatureViewController.merchantLogo = [UIImage imageNamed:@"merchantFruit.png"];
+signatureViewController.amountText = @"5.99 €";
+signatureViewController.signatureText = @"Signature";
+signatureViewController.signatureColor = [UIColor darkGrayColor];
+signatureViewController.payButtonText = @"Pay now";
+signatureViewController.cancelButtonText = @"Cancel";
 ```
 
 Now, register blocks to be executed once the pay or cancel button are pressed. You can access the user's signature by calling the signature method of the view controller.
 
-```
+```objectivec
 [signatureViewController registerOnPay:^{  
-        UIImage* signature = [signatureViewController signature];
-        [signatureViewController dismissViewControllerAnimated:YES completion:nil];
-    } onCancel:^{
-        [signatureViewController dismissViewControllerAnimated:YES completion:nil]; 
-    }];
+    UIImage* signature = [signatureViewController signature];
+    [signatureViewController dismissViewControllerAnimated:YES completion:nil];
+} onCancel:^{
+    [signatureViewController dismissViewControllerAnimated:YES completion:nil]; 
+}];
 ```
 
 To capture the signature, you now only have to present the view controller
 
-    [self presentViewController:signatureViewController animated:YES completion:nil];
+```objectivec
+[self presentViewController:signatureViewController animated:YES completion:nil];
+```
 
 ### Use the signature field in a custom controller
 
@@ -59,13 +63,15 @@ If you only want to use the field which captures the signature without any of th
 
 First, open the header file of the controller which should hold the signature field and make your view controller extend PWBSignatureFieldViewController
 
-    @interface MyViewController : PWBSignatureViewController
+```objectivec
+@interface MyViewController : PWBSignatureViewController
+```
 
 Since the smooth display of the drawn signature depends on OpenGL, code has to be executed in your controller and the signature field cannot be added as a simple UIView. But we tried to make it as easy as possible for you!
 
 Next, you have to specify the location where your signature field is supposed to be created on the view. In your view controllers implementation file, create the signature field in the viewDidLoad method, you can either use a UIView from your storyboard connected to the controller using an IBOutlet
 
-```
+```objectivec
  - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -75,7 +81,7 @@ Next, you have to specify the location where your signature field is supposed to
 
 or specify the signature fields location using a CGRect frame.
 
-```
+```objectivec
  - (void)viewDidLoad
 {
     [super viewDidLoad];
