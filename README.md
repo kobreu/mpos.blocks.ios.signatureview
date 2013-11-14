@@ -18,7 +18,7 @@ To use the SignatureView in your project, you should have an Xcode project with 
 
 ### Use the predefined signature screen
 
-![signature view](http://thpnetz.de/pw/signatureview.png "Signature View")
+![signature view](http://thpnetz.de/pw/signature.png "Signature View")
 
 To start right away, you can use the predefined view controller which shows a signature screen with some information to the user. To capture a signature, create a PWBSignatureViewController instance first.
 
