@@ -15,6 +15,7 @@ The SignatureView enables you to capture a customers signature drawn on the touc
 ### Prepare your project
 
 To use the SignatureView in your project, you should have an Xcode project with CocoaPods available. Make sure you have added the payworks payment blocks specs repository. Then, in your podfile, add the dependency
+
     pod 'PWBSignatureView', '~> 0.2.1'
 
 ### Use the predefined signature screen
