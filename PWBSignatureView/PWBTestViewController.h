@@ -11,6 +11,4 @@
 
 @interface PWBTestViewController : PWBSignatureFieldViewController
 
-- (void)signatureDidChange;
-
 @end
