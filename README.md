@@ -3,8 +3,9 @@
 Kickstart your development of iOS payment applications with often-used payment application components by payworks! Payworks payment blocks are free-to-use UI components such as fields for capturing customer signatures, … (more to come!) taking the programming burden out of your hands and letting you focus on creating awesome applications.
 
 The payment blocks are made available on our CocoaPod podspec repository. To use the payment blocks, add 
-    http://github.com/thmp/podspecs.git
+http://github.com/thmp/podspecs.git
 as a custom pod repository. If you want to add it using the name 'pwb', you could just execute
+
     pod repo add pwb http://github.com/thmp/podspecs.git
 
 ## SignatureView
