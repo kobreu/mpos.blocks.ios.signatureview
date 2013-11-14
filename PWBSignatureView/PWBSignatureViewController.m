@@ -130,17 +130,17 @@
         self.paperView.frame = self.view.bounds;
         
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-        CGRect maskRect = self.signatureFrame;
-        
-        // Create a path with the rectangle in it.
+        CGRect maskRect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
         CGPathRef path = CGPathCreateWithRect(maskRect, NULL);
-        
-        // Set the path to the mask layer.
         maskLayer.path = path;
-        
-        // Release the path since it's not covered by ARC.
         CGPathRelease(path);
-        // Set the mask of the view.
+        self.backgroundView.layer.mask = maskLayer;
+        
+        maskLayer = [[CAShapeLayer alloc] init];
+        maskRect = self.signatureFrame;
+        path = CGPathCreateWithRect(maskRect, NULL);
+        maskLayer.path = path;
+        CGPathRelease(path);
         self.signatureView.layer.mask = maskLayer;
     
         self.paperView.frame = CGRectMake(self.signatureView.layer.frame.origin.x-5, 0, self.signatureView.layer.frame.size.width+10, self.signatureView.layer.frame.size.height);
@@ -158,20 +158,23 @@
         self.payButton.frame = CGRectMake(20, 330, self.view.bounds.size.width-40, 54);
         //self.cancelButton.frame = CGRectMake(20, self.view.bounds.size.height-20-40, self.view.bounds.size.width-40, 54);
         self.cancelButton.frame = CGRectMake(20, 385, self.view.bounds.size.width-40, 54);
+        
         self.backgroundView.frame = CGRectMake(0, -445, self.view.bounds.size.width, 2*self.backgroundView.image.size.height);
+        
+        // mask backgroundView
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        CGRect maskRect = CGRectMake(0, 445, self.view.bounds.size.width, self.view.bounds.size.height);
+        CGPathRef path = CGPathCreateWithRect(maskRect, NULL);
+        maskLayer.path = path;
+        CGPathRelease(path);
+        self.backgroundView.layer.mask = maskLayer;
         
         // mask signature view
         // Create a mask layer and the frame to determine what will be visible in the view.
-        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-        CGRect maskRect = CGRectMake((-1)*self.signatureView.frame.origin.x+25, 0, self.view.bounds.size.width-50, self.signatureView.frame.size.height);
-        
-        // Create a path with the rectangle in it.
-        CGPathRef path = CGPathCreateWithRect(maskRect, NULL);
-        
-        // Set the path to the mask layer.
+        maskLayer = [[CAShapeLayer alloc] init];
+        maskRect = CGRectMake((-1)*self.signatureView.frame.origin.x+25, 0, self.view.bounds.size.width-50, self.signatureView.frame.size.height);
+        path = CGPathCreateWithRect(maskRect, NULL);
         maskLayer.path = path;
-        
-        // Release the path since it's not covered by ARC.
         CGPathRelease(path);
         
         // Set the mask of the view.
