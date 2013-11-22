@@ -13,26 +13,14 @@
 
 @property (nonatomic, weak) CCGLView* signatureView;
 
-/**
- * Lays out the signature field for capturing the signature using cocos2D
- */
--(void)setupSignatureFieldWithFrame:(CGRect)frame;
--(void)setupSignatureFieldWithView:(UIView*)view;
+- (void)setupSignatureFieldWithFrame:(CGRect)frame;
+- (void)setupSignatureFieldWithView:(UIView*)view;
+- (void)tearDownSignatureField;
 
 - (void)setupSignatureFieldComponents;
 
-/**
- * Clears the signature currently on the screen
- */
--(void)clearSignature;
-
-/**
- * Returns the signature currently on the screen
- * @return The signature entered by the user as a UIImage
- */
--(UIImage*) signature;
-
--(void)tearDownSignatureField;
+- (void)clearSignature;
+- (UIImage*) signature;
 
 @end
 

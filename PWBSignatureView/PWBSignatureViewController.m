@@ -17,7 +17,7 @@
 
 @property CGRect signatureFrame;
 
-// signature view components
+// UI Components
 @property (nonatomic, strong) UIImageView* merchantLogoView;
 @property (nonatomic, strong) UILabel* merchantNameLabel;
 @property (nonatomic, strong) UILabel* amountTextLabel;
@@ -28,10 +28,9 @@
 @property (nonatomic, strong) UIImageView* backgroundView;
 @property (nonatomic, strong) UIImageView* paperView;
 
-// callback blocks
+// Callback Blocks
 @property (nonatomic, copy) void (^payCallback)(void);
 @property (nonatomic, copy) void (^cancelCallback)(void);
-
 
 @end
 
@@ -52,47 +51,20 @@
         
         self.view.backgroundColor = [UIColor whiteColor];
         
-        NSLog(@"%f, %f", self.view.bounds.size.height+20, self.view.bounds.size.width-80);
-        // use frame size here since we can then be sure that it is in portrait orientation
         if ([self interfaceOrientation] == UIInterfaceOrientationLandscapeLeft || [self interfaceOrientation] == UIInterfaceOrientationLandscapeRight) {
-            NSLog(@"create sig field in landscape");
-            // created in landscape mode
             self.signatureFrame = CGRectMake(0, 0, self.view.frame.size.height-2*25, self.view.frame.size.width+20-100); // +20=ignore navbar, -2*25=border left-right, -100=button bar
         } else {
-            // created in portrait mode
-            NSLog(@"create sig field in portrait");
-            self.signatureFrame = CGRectMake(0, 0, self.view.frame.size.height+20-2*25, self.view.frame.size.width-100); // +20=ignore navbar, -2*25=border left-right, -100=button bar
+            self.signatureFrame = CGRectMake(0, 0, self.view.frame.size.height+20-2*25, self.view.frame.size.width-100);
         }
-        NSLog(@"create sig field %f %f", self.signatureFrame.size.width, self.signatureFrame.size.height);
         [self setupSignatureFieldWithFrame:self.signatureFrame];
     }
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-}
-
 - (BOOL)shouldAutorotate {
-    //NSLog(@"rotating..");
     return YES;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-}
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     [self alignComponentsForOrientation:self.interfaceOrientation];
@@ -101,22 +73,18 @@
 - (CGRect)getSignatureFrameForOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        // landscape
         return CGRectMake(25, 0, self.signatureFrame.size.width, self.signatureFrame.size.height);
     } else {
-        // portrait
-        NSLog(@"%f, %f",(self.view.bounds.size.width-self.signatureFrame.size.width)/2,self.signatureFrame.size.width);
         return CGRectMake((self.view.bounds.size.width-self.signatureFrame.size.width)/2, 90, self.signatureFrame.size.width, self.signatureFrame.size.height);
     }
 }
 
 - (void)alignComponentsForOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    //NSLog(@"rotate: Bounds Heihght:%f Width:%f", self.view.bounds.size.height, self.view.bounds.size.width);
     self.signatureView.layer.frame = [self getSignatureFrameForOrientation:interfaceOrientation];
     
     if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        // landscape
+
         self.amountTextLabel.frame = CGRectMake(self.view.bounds.size.width-40-200, 15, 200, 26);
         self.amountTextLabel.textAlignment = NSTextAlignmentRight;
         self.signatureTextLabel.frame = CGRectMake((self.view.bounds.size.width-self.signatureTextLabel.frame.size.width)/2,
@@ -145,20 +113,15 @@
     
         self.paperView.frame = CGRectMake(self.signatureView.layer.frame.origin.x-5, 0, self.signatureView.layer.frame.size.width+10, self.signatureView.layer.frame.size.height);
     } else {
-        // portrait
         self.amountTextLabel.frame = CGRectMake(94, 54, 290, 26);
         self.amountTextLabel.textAlignment = NSTextAlignmentLeft;
         self.signatureTextLabel.frame = CGRectMake(20,
                                                    self.signatureView.frame.origin.y+self.signatureView.frame.size.height-15-self.signatureTextLabel.frame.size.height,
                                                    self.view.bounds.size.width-40,
                                                    self.signatureTextLabel.frame.size.height);
-        self.signatureLineView.frame = CGRectMake(30, self.signatureTextLabel.frame.origin.y-5, self.signatureTextLabel.frame.size.width-20
-                                                  , 1);
-        //self.payButton.frame = CGRectMake(20, self.view.bounds.size.height-20-40-10-40, self.view.bounds.size.width-40, 54);
+        self.signatureLineView.frame = CGRectMake(30, self.signatureTextLabel.frame.origin.y-5, self.signatureTextLabel.frame.size.width-20, 1);
         self.payButton.frame = CGRectMake(20, 330, self.view.bounds.size.width-40, 54);
-        //self.cancelButton.frame = CGRectMake(20, self.view.bounds.size.height-20-40, self.view.bounds.size.width-40, 54);
         self.cancelButton.frame = CGRectMake(20, 385, self.view.bounds.size.width-40, 54);
-        
         self.backgroundView.frame = CGRectMake(0, -445, self.view.bounds.size.width, 2*self.backgroundView.image.size.height);
         
         // mask backgroundView
@@ -170,15 +133,13 @@
         self.backgroundView.layer.mask = maskLayer;
         
         // mask signature view
-        // Create a mask layer and the frame to determine what will be visible in the view.
         maskLayer = [[CAShapeLayer alloc] init];
         maskRect = CGRectMake((-1)*self.signatureView.frame.origin.x+25, 0, self.view.bounds.size.width-50, self.signatureView.frame.size.height);
         path = CGPathCreateWithRect(maskRect, NULL);
         maskLayer.path = path;
         CGPathRelease(path);
-        
-        // Set the mask of the view.
         self.signatureView.layer.mask = maskLayer;
+        
         self.paperView.frame = CGRectMake(20, 0, maskRect.size.width+10, 310);
         
     }
@@ -190,7 +151,6 @@
 }
 - (void)viewDidAppear:(BOOL)animated
 {
-    //[self setupAdditionalUIElements];
     [super viewDidAppear:animated];
     [self alignComponentsForOrientation:[self interfaceOrientation]];
 }
@@ -242,7 +202,6 @@
     self.signatureTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.signatureTextLabel.numberOfLines = 0;
     [self.signatureTextLabel sizeToFit];
-    /*self.signatureTextLabel.frame = CGRectMake(20, 320+self.view.bounds.size.height/4-self.signatureTextLabel.frame.size.height, 280, self.signatureTextLabel.frame.size.height);*/
     self.signatureTextLabel.textAlignment = NSTextAlignmentCenter;
     self.signatureTextLabel.backgroundColor = [UIColor clearColor];
     
@@ -302,6 +261,5 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 @end

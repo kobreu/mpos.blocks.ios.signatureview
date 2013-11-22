@@ -35,17 +35,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (void)setupSignatureFieldBackground
 {
-    
+    // method can be overwritten by user
 }
 - (void)setupSignatureFieldComponents
 {
@@ -71,7 +69,6 @@
 
 - (void)setupSignatureField
 {
-    NSLog(@"setup with %f, %f, %f, %f", self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
     self.signatureView = [CCGLView viewWithFrame:self.frame// landscape signature field
                                      pixelFormat:kEAGLColorFormatRGB565	//kEAGLColorFormatRGBA8
                                      depthFormat:0	//GL_DEPTH_COMPONENT24_OES
@@ -83,23 +80,12 @@
     self.director = (CCDirectorIOS*) [CCDirector sharedDirector];
     
 	self.director.wantsFullScreenLayout = YES;
-    
-    // Display FSP and SPF
     [self.director setDisplayStats:NO];
-    
-    // set FPS at 60
     [self.director setAnimationInterval:1.0/60];
-    
-    //[self.director setDelegate:self];
-    
-    // 2D projection
 	[self.director setProjection:kCCDirectorProjection2D];
-    //	[director setProjection:kCCDirectorProjection3D];
-    
-	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
+
 	if( ! [self.director enableRetinaDisplay:YES] )
 		CCLOG(@"Retina Display Not supported");
-    
     
     [self.director setView:self.signatureView];
     [self addChildViewController:self.director];
@@ -162,7 +148,6 @@
 }
 
 -(UIImage *)signature {
-    NSLog(@"requesting signature...");
     return [self.lineDrawer drawing];
 }
 
