@@ -467,7 +467,7 @@ typedef struct _LineVertex {
 }
 
 - (void)clearDrawing {
-    [renderTexture beginWithClear:1.0 g:1.0 b:1.0 a:0];
+    [renderTexture beginWithClear:1.0 g:1.0 b:1.0 a:1.0];
     [renderTexture end];
 	
 	/** <Johannes> **/

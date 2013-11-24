@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 payworks. All rights reserved.
 //
 
-#import "PWBTestViewController.h"
+#import "MPBTestViewController.h"
 
-@interface PWBTestViewController ()
+@interface MPBTestViewController ()
 @property (weak, nonatomic) IBOutlet UIView *mySigView;
 
 @end
 
-@implementation PWBTestViewController
+@implementation MPBTestViewController
 
 - (id)init
 {

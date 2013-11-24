@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PWBAppDelegate : UIResponder <UIApplicationDelegate>
+@interface MPBAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

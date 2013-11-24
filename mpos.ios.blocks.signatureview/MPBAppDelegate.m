@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 payworks. All rights reserved.
 //
 
-#import "PWBAppDelegate.h"
+#import "MPBAppDelegate.h"
 
-@implementation PWBAppDelegate
+@implementation MPBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

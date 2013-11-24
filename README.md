@@ -1,12 +1,12 @@
-# payworks payment blocks
+# mpos payment blocks
 
-Kickstart your development of iOS payment applications with often-used payment application components by payworks! payworks payment blocks are free-to-use UI components such as fields for capturing customer signatures, … (more to come!) taking the programming burden out of your hands and letting you focus on creating awesome applications.
+Kickstart your development of iOS payment applications with often-used payment application components by payworks! mpos payment blocks are free-to-use UI components such as fields for capturing customer signatures, … (more to come!) taking the programming burden out of your hands and letting you focus on creating awesome applications.
 
 The payment blocks are made available on our CocoaPod podspec repository. To use the payment blocks, add 
-http://github.com/thmp/podspecs.git
-as a custom pod repository. If you want to add it using the name 'pwb', you could just execute
+http://pods.mpymnt.com/io.mpymnt.repo.pods.git
+as a custom pod repository. If you want to add it using the name 'mcommerce', you could just execute
 
-    pod repo add pwb http://github.com/thmp/podspecs.git
+    pod repo add mcommerce http://pods.mpymnt.com/io.mpymnt.repo.pods.git
 
 ## SignatureView
 
@@ -14,10 +14,12 @@ The SignatureView enables you to capture a customer's signature drawn on the tou
 
 ### Prepare your project
 
-To use the SignatureView in your project, you should have an Xcode project with CocoaPods (http://cocoapods.org) available. Make sure you have added the payworks payment blocks specs repository. Then, create your podfile for the dependencies 
+To use the SignatureView in your project, you should have an Xcode project with CocoaPods (http://cocoapods.org) available. Make sure you have added the mpos payment blocks specs repository. Then, create your podfile for the dependencies 
 
     platform :ios, '6.1'
-    pod 'PWBSignatureView', '~> 0.2.1'
+    pod 'MPBSignatureView', '~> 0.2.1'
+
+Running `pod install` might take a while, since the Cocos2d framework, on which the signature view depends has about 450 MB which have to be downloaded.
 
 ### Use the predefined signature screen
 
@@ -26,14 +28,13 @@ To use the SignatureView in your project, you should have an Xcode project with 
 To start right away, you can use the predefined view controller which shows a signature screen with some information to the user. To capture a signature, create a PWBSignatureViewController instance first.
 
 ```objectivec
-PWBSignatureViewController* signatureViewController = [[PWBSignatureViewController alloc]init];
+MPBSignatureViewController* signatureViewController = [[MPBSignatureViewController alloc]init];
 ```
 
 Now, customize logo, title, amount and text beneath the signature line to match your application.
 
 ```objectivec
 signatureViewController.merchantName = @"Fruit Shop";
-signatureViewController.merchantLogo = [UIImage imageNamed:@"merchantFruit.png"];
 signatureViewController.amountText = @"5.99 €";
 signatureViewController.signatureText = @"Signature";
 signatureViewController.signatureColor = [UIColor darkGrayColor];
@@ -62,10 +63,10 @@ To capture the signature, you now only have to present the view controller
 
 If you only want to use the field which captures the signature without any of the additional UI components of the predefined signature view, you have to proceed as follows.
 
-First, open the header file of the controller which should hold the signature field and make your view controller extend PWBSignatureFieldViewController
+First, open the header file of the controller which should hold the signature field and make your view controller extend MPBSignatureFieldViewController
 
 ```objectivec
-@interface MyViewController : PWBSignatureViewController
+@interface MyViewController : MPBSignatureFieldViewController
 ```
 
 Since the smooth display of the drawn signature depends on OpenGL, code has to be executed in your controller and the signature field cannot be added as a simple UIView. But we tried to make it as easy as possible for you!
@@ -90,11 +91,17 @@ or specify the signature fields location using a CGRect frame.
 }
 ```
 
-By extending PWBSignatureFieldViewController, you can now access the following methods in your view controller:
+By extending MPBSignatureFieldViewController, you can now access the following methods in your view controller:
 
-- (void)clearSignature;
-- (UIImage*)signature;
-- (void)tearDownSignatureField;
+```objectivec
+ - (void)clearSignature;
+ - (UIImage*)signature;
+ - (void)tearDownSignatureField;
+```
+
+The clearSignature method removes all current lines on the signature field and leaves an white empty signature field to the user.
+
+The additional tearDownSignatureField method should be called whenever the controller containing the signature field is finally destroyed to release all resources used by the drawing framework.
 
 ## Credits
 

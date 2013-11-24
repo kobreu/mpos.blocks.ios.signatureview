@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PWBSignatureFieldViewController.h"
+#import "MPBSignatureFieldViewController.h"
 
-@interface PWBTestViewController : PWBSignatureFieldViewController
+@interface MPBTestViewController : MPBSignatureFieldViewController
 
 @end

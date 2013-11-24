@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PWBViewController : UIViewController
+@interface MPBViewController : UIViewController
 
 @end
