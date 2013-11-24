@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 payworks. All rights reserved.
 //
 
-#import "PWBSignatureFieldViewController.h"
+#import "MPBSignatureFieldViewController.h"
 #import "cocos2d/cocos2d.h"
 #import "LineDrawer.h"
 
-@interface PWBSignatureFieldViewController ()
+@interface MPBSignatureFieldViewController ()
 
 @property (nonatomic, weak) CCDirectorIOS *director;
 @property (nonatomic, weak) LineDrawer *lineDrawer;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation PWBSignatureFieldViewController
+@implementation MPBSignatureFieldViewController
 
 - (id)init
 {
@@ -47,14 +47,14 @@
 }
 - (void)setupSignatureFieldComponents
 {
-    UIView* signatureLineView;
+    /*UIView* signatureLineView;
     if (self.frame.size.width >= 320) {
         signatureLineView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x+(self.frame.size.width-280)/2, self.frame.origin.y+self.frame.size.height-10, 280, 1)];
     } else {
         signatureLineView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x+20, self.frame.size.height-10, self.frame.origin.y+self.frame.size.width-40, 1)];
     }
     signatureLineView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:signatureLineView];
+    [self.view addSubview:signatureLineView];*/
 }
 
 - (void)setupSignatureFieldWithView:(UIView*)view

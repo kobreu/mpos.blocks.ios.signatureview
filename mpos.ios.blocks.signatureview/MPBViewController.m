@@ -6,19 +6,19 @@
 //  Copyright (c) 2013 payworks. All rights reserved.
 //
 
-#import "PWBViewController.h"
-#import "PWBSignatureViewController.h"
-#import "PWBTestViewController.h"
+#import "MPBViewController.h"
+#import "MPBSignatureViewController.h"
+#import "MPBTestViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface PWBViewController ()
+@interface MPBViewController ()
 
 @property BOOL fieldShown;
 @property (strong, nonatomic) UIImageView* backgroundView;
 
 @end
 
-@implementation PWBViewController
+@implementation MPBViewController
 
 - (id)init
 {
@@ -40,17 +40,16 @@
 }
 
 - (IBAction)showCustomScreen:(id)sender {
-    PWBTestViewController *vc = (PWBTestViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"signature"];
+    MPBTestViewController *vc = (MPBTestViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"signature"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)showModal
 {
-        
-    PWBSignatureViewController* signatureViewController = [[PWBSignatureViewController alloc]init];
+    
+    MPBSignatureViewController* signatureViewController = [[MPBSignatureViewController alloc]init];
         
     signatureViewController.merchantName = @"Fruit Shop";
-    signatureViewController.merchantLogo = [UIImage imageNamed:@"merchantFruit.png"];
     signatureViewController.amountText = @"5.99 €";
     signatureViewController.signatureText = @"Hiermit autorisiere ich die Zahlung in Höhe von 5.99 € an Fruit Shop";
     signatureViewController.signatureColor = [UIColor darkGrayColor];

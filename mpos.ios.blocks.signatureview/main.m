@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PWBAppDelegate.h"
+#import "MPBAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([PWBAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MPBAppDelegate class]));
     }
 }

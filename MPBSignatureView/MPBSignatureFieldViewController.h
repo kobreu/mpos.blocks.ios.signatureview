@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "cocos2d/cocos2d.h"
 
-@interface PWBSignatureFieldViewController : UIViewController <CCDirectorDelegate>
+@interface MPBSignatureFieldViewController : UIViewController <CCDirectorDelegate>
 
 @property (nonatomic, weak) CCGLView* signatureView;
 
@@ -26,8 +26,8 @@
 
 @protocol PWTSignatureFieldViewControllerDelegate <NSObject>
 
-- (void)signatureDidClear:(PWBSignatureFieldViewController*)aController;
-- (void)signatureDidChange:(PWBSignatureFieldViewController*)aController;
+- (void)signatureDidClear:(MPBSignatureFieldViewController*)aController;
+- (void)signatureDidChange:(MPBSignatureFieldViewController*)aController;
 
 @end
 
