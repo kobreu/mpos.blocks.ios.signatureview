@@ -94,7 +94,8 @@
     self.merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, self.bounds.size.height/2-10, 34)];
     self.merchantNameLabel.backgroundColor = [UIColor clearColor];
     [self.merchantNameLabel setText:self.merchantName];
-    [self.merchantNameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Ultralight" size:32]];
+    self.amountTextLabel.textAlignment = NSTextAlignmentLeft;
+    [self.merchantNameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:32]];
     
     // Amount Text
     self.amountTextLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.size.height/2, 5, self.bounds.size.height/2-10, 34)];
