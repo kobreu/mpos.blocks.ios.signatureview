@@ -47,14 +47,7 @@
 }
 - (void)setupSignatureFieldComponents
 {
-    /*UIView* signatureLineView;
-    if (self.frame.size.width >= 320) {
-        signatureLineView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x+(self.frame.size.width-280)/2, self.frame.origin.y+self.frame.size.height-10, 280, 1)];
-    } else {
-        signatureLineView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.origin.x+20, self.frame.size.height-10, self.frame.origin.y+self.frame.size.width-40, 1)];
-    }
-    signatureLineView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:signatureLineView];*/
+    // method can be overwritten by user
 }
 
 - (void)setupSignatureFieldWithView:(UIView*)view
