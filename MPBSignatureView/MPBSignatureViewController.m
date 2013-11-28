@@ -33,6 +33,11 @@
 
 @property CGRect bounds;
 
+@property UIFont* largeFont;
+@property UIFont* mediumFont;
+@property UIFont* smallFont;
+
+
 @end
 
 @implementation MPBSignatureViewController
@@ -41,13 +46,8 @@
 {
     self = [super init];
     if (self) {
-        self.merchantName = @"Merchant";
-        self.amountText = @"1.00 €";
-        self.signatureText = @"Signature";
-        self.signatureColor = [UIColor blueColor];
+        [self setDefaultText];
         
-        self.payButtonText = @"Pay";
-        self.cancelButtonText = @"Cancel";
         self.buttonColor = [UIColor colorWithRed:21.0f/255.0f green:126.0f/255.0f blue:251.0f/255.0f alpha:1.0f];
         self.colorGrey = [UIColor colorWithRed:142.0f/255.0f green:142.0f/255.0f blue:147.0f/255.0f alpha:1.0];
         self.colorBackground = [UIColor colorWithRed:240.0f/255.0f green:240.0f/255.0f blue:240.0f/255.0f alpha:1.0f];
@@ -68,10 +68,23 @@
             self.signatureFrame = CGRectMake(0, 44, self.bounds.size.height, self.bounds.size.width-88);
         //}
         
+        self.largeFont = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:32];
+        self.mediumFont = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:20];
+        self.smallFont = [UIFont fontWithName:@"HelveticaNeue-Ultralight" size:16];
+        
         [self setupSignatureFieldWithFrame:self.signatureFrame];
-
     }
     return self;
+}
+
+- (void) setDefaultText {
+    self.merchantName = @"Merchant";
+    self.amountText = @"1.00 €";
+    self.signatureText = @"Signature";
+    self.signatureColor = [UIColor blueColor];
+    
+    self.payButtonText = @"Pay";
+    self.cancelButtonText = @"Cancel";
 }
 
 - (BOOL)shouldAutorotate {
@@ -89,24 +102,14 @@
 
 - (void)setupSignatureFieldComponents
 {
+    [self setupMerchantNameLabel];
     
-    // Merchant Name
-    self.merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, self.bounds.size.height/2-10, 34)];
-    self.merchantNameLabel.backgroundColor = [UIColor clearColor];
-    [self.merchantNameLabel setText:self.merchantName];
-    [self.merchantNameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Ultralight" size:32]];
-    
-    // Amount Text
-    self.amountTextLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.size.height/2, 5, self.bounds.size.height/2-10, 34)];
-    self.amountTextLabel.backgroundColor = [UIColor clearColor];
-    [self.amountTextLabel setText:self.amountText];
-    self.amountTextLabel.textAlignment = NSTextAlignmentRight;
-    [self.amountTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue-UltraLight" size:32]];
+    [self setupAmountLabel];
     
     // Signature Text
     self.signatureTextLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.bounds.size.width-88, self.bounds.size.height, 44)];
     [self.signatureTextLabel setText:self.signatureText];
-    [self.signatureTextLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:16]];
+    [self.signatureTextLabel setFont:self.smallFont];
     self.signatureTextLabel.textColor = self.colorGrey;
     self.signatureTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.signatureTextLabel.numberOfLines = 0;
@@ -122,7 +125,7 @@
     self.payButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.payButton.frame = CGRectMake(0.382*self.bounds.size.height, self.bounds.size.width-44, 0.618*self.bounds.size.height, 44);
     [self.payButton setTitle:self.payButtonText forState:UIControlStateNormal];
-    [[self.payButton titleLabel] setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+    [[self.payButton titleLabel] setFont:self.mediumFont];
     [self.payButton addTarget:self
                        action:@selector(btnPay)
              forControlEvents:UIControlEventTouchUpInside];
@@ -136,7 +139,7 @@
     self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.cancelButton.frame = CGRectMake(0, self.bounds.size.width-44, 0.382*self.bounds.size.height, 44);
     [self.cancelButton setTitle:self.cancelButtonText forState:UIControlStateNormal];
-    [[self.cancelButton titleLabel] setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+    [[self.cancelButton titleLabel] setFont:self.mediumFont];
     [self.cancelButton addTarget:self
                           action:@selector(btnCancel)
                 forControlEvents:UIControlEventTouchUpInside];
@@ -164,6 +167,22 @@
     [self.view addSubview:self.payButton];
     [self.view addSubview:self.cancelButton];
     [self.view addSubview:self.signatureLineView];
+}
+
+-(void) setupMerchantNameLabel {
+    self.merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, self.bounds.size.height/2-10, 34)];
+    self.merchantNameLabel.backgroundColor = [UIColor clearColor];
+    [self.merchantNameLabel setText:self.merchantName];
+    [self.merchantNameLabel setFont:self.largeFont];
+}
+
+-(void) setupAmountLabel {
+    self.amountTextLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.size.height/2, 5, self.bounds.size.height/2-10, 34)];
+    self.amountTextLabel.backgroundColor = [UIColor clearColor];
+    [self.amountTextLabel setText:self.amountText];
+    self.amountTextLabel.textAlignment = NSTextAlignmentRight;
+    [self.amountTextLabel setFont:self.largeFont];
+
 }
 - (void)btnPay
 {
