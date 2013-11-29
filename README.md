@@ -42,7 +42,9 @@ signatureViewController.payButtonText = @"Pay now";
 signatureViewController.cancelButtonText = @"Cancel";
 ```
 
-Now, register blocks to be executed once the pay or cancel button are pressed. You can access the user's signature by calling the signature method of the view controller.
+You can even further customize the colors and fonts of the view, take a look at the properties `largeFont`, `mediumFont`, `smallFont` as well as `colorLine` and `colorBackground`.
+
+Now, register blocks to be executed once the pay or cancel buttons are pressed. You can access the user's signature by calling the signature method of the view controller.
 
 ```objectivec
 [signatureViewController registerOnPay:^{  
@@ -53,7 +55,7 @@ Now, register blocks to be executed once the pay or cancel button are pressed. Y
 }];
 ```
 
-To capture the signature, you now only have to present the view controller
+To capture the signature, you just have to present the view controller
 
 ```objectivec
 [self presentViewController:signatureViewController animated:YES completion:nil];
@@ -69,11 +71,15 @@ First, open the header file of the controller which should hold the signature fi
 @interface MyViewController : MPBSignatureFieldViewController
 ```
 
-Since the smooth display of the drawn signature depends on OpenGL, code has to be executed in your controller and the signature field cannot be added as a simple UIView. But we tried to make it as easy as possible for you!
+Since the smooth displaying of the drawn signature depends on OpenGL, code has to be executed in your controller and the signature field cannot be added as a simple UIView. But we still tried to make it as convenient as possible!
 
-Next, you have to specify the location where your signature field is supposed to be created on the view. In your view controllers implementation file, create the signature field in the viewDidLoad method, you can either use a UIView from your storyboard connected to the controller using an IBOutlet
+Next, you have to specify the location where your signature field is supposed to be created on the view. In your view controller's implementation file, create the signature field in the viewDidLoad method, you can either use a UIView from your storyboard connected to the controller using an IBOutlet
 
 ```objectivec
+@property (weak, nonatomic) IBOutlet UIView *mySigView;
+
+// ...
+
  - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -81,7 +87,7 @@ Next, you have to specify the location where your signature field is supposed to
 }
 ```
 
-or specify the signature fields location using a CGRect frame.
+or specify the signature field's location using a CGRect frame.
 
 ```objectivec
  - (void)viewDidLoad

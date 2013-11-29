@@ -137,7 +137,6 @@
 		CF159BD11823B7C700A797FE = {
 			isa = PBXGroup;
 			children = (
-				CFCD7208182BC256004519B4 /* Resources */,
 				CF136A961823E293000DC47E /* External */,
 				CF4B565118426BF9002687E0 /* MPBSignatureView */,
 				CF159BE31823B7C700A797FE /* mpos.ios.blocks.signatureview */,
@@ -226,13 +225,6 @@
 				CF4B565B18426DCA002687E0 /* MPBSignatureViewController.m */,
 			);
 			name = MPBSignatureView;
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		CFCD7208182BC256004519B4 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
 			path = Resources;
 			sourceTree = "<group>";
 		};

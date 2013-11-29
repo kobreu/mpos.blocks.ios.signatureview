@@ -89,16 +89,6 @@ typedef struct _LineVertex {
         renderTexture = [[CCRenderTexture alloc] initWithWidth:(int)self.contentSize.width height:(int)self.contentSize.height pixelFormat:kCCTexture2DPixelFormat_RGBA8888];
         renderTexture.anchorPoint = ccp(0, 0);
         
-        /*float width;
-        float height;
-        if (self.contentSize.height > self.contentSize.width) {
-            width = self.contentSize.height;
-            height = self.contentSize.width;
-        } else {
-            width = self.contentSize.width;
-            height = self.contentSize.height;
-        }*/
-        //renderTexture.position = ccp(height * 0.5f, width * 0.5f);
         renderTexture.position = ccp(self.contentSize.width * 0.5f, self.contentSize.height * 0.5f);
         
         [renderTexture clear:1.0f g:1.0f b:1.0f a:1.0f];
@@ -286,9 +276,6 @@ typedef struct _LineVertex {
 {
     [_shaderProgram use];
     [_shaderProgram setUniformsForBuiltins];
-    /** <David> **/
-    // [_shaderProgram setUniformForModelViewProjectionMatrix]; -> deprecated
-    /** </David> **/
     
     ccGLEnableVertexAttribs(kCCVertexAttribFlag_Position | kCCVertexAttribFlag_Color);
     
@@ -381,11 +368,9 @@ typedef struct _LineVertex {
 
 - (void)draw
 {
-    //ccColor4F color = {0, 0, 0, 1};
     CGFloat r, g, b, a;
     [self.color getRed: &r green:&g blue:&b alpha:&a];
     ccColor4F color = {r, g, b, 1.0};
-    //NSLog(@"%f, %f, %f, %f", r, g, b, a);
     [renderTexture begin];
     
     NSMutableArray *smoothedPoints = [self calculateSmoothLinePoints];
@@ -495,10 +480,8 @@ typedef struct _LineVertex {
 /** <David> **/
 - (UIImage*)drawing {
     NSLog(@"saving..");
-    //[renderTexture begin];
     UIImage* result = [renderTexture getUIImage];
     [renderTexture saveToFile:@"test.jpg"];
-    //[renderTexture end];
     return result;
 }
 - (void)test {

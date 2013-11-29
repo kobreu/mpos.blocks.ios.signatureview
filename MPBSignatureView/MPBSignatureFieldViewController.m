@@ -1,10 +1,27 @@
-//
-//  PWBSignatureFieldViewController.m
-//  mpos.ios.blocks.signatureview
-//
-//  Created by Thomas Pischke on 08.11.13.
-//  Copyright (c) 2013 payworks. All rights reserved.
-//
+/*
+ * mPOS SKD Building Blocks: http://www.payworksmobile.com
+ *
+ * Copyright (c) 2013 payworks GmbH
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ */
 
 #import "MPBSignatureFieldViewController.h"
 #import "cocos2d/cocos2d.h"
@@ -22,8 +39,7 @@
 
 @implementation MPBSignatureFieldViewController
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         self.signatureColor = [UIColor blackColor];
@@ -32,39 +48,32 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-- (void)setupSignatureFieldBackground
-{
-    // method can be overwritten by user
+- (void)setupSignatureFieldBackground {
+    // method can be overwritten by user to add background components to the signature field
 }
-- (void)setupSignatureFieldComponents
-{
-    // method can be overwritten by user
+- (void)setupSignatureFieldComponents {
+    // method can be overwritten by user to add frontend components to the signature field
 }
 
-- (void)setupSignatureFieldWithView:(UIView*)view
-{
+- (void)setupSignatureFieldWithView:(UIView*)view {
     self.frame = view.frame;
 }
 
-- (void)setupSignatureFieldWithFrame:(CGRect)frame
-{
+- (void)setupSignatureFieldWithFrame:(CGRect)frame {
     self.frame = frame;
 }
 
-- (void)setupSignatureField
-{
-    self.signatureView = [CCGLView viewWithFrame:self.frame// landscape signature field
-                                     pixelFormat:kEAGLColorFormatRGB565	//kEAGLColorFormatRGBA8
-                                     depthFormat:0	//GL_DEPTH_COMPONENT24_OES
+- (void)setupSignatureField {
+    self.signatureView = [CCGLView viewWithFrame:self.frame
+                                     pixelFormat:kEAGLColorFormatRGB565
+                                     depthFormat:0
                               preserveBackbuffer:NO
                                       sharegroup:nil
                                    multiSampling:NO
@@ -76,9 +85,6 @@
     [self.director setDisplayStats:NO];
     [self.director setAnimationInterval:1.0/60];
 	[self.director setProjection:kCCDirectorProjection2D];
-
-	if( ! [self.director enableRetinaDisplay:YES] )
-		CCLOG(@"Retina Display Not supported");
     
     [self.director setView:self.signatureView];
     [self addChildViewController:self.director];
@@ -119,8 +125,8 @@
         
         [self.director startAnimation];
     }
-    
 }
+
 -(void)viewWillDisappear:(BOOL)animated {
     [self.director stopAnimation];
     [self tearDownSignatureField];
