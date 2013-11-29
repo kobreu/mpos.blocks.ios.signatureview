@@ -51,7 +51,7 @@
         
     signatureViewController.merchantName = @"Fruit Shop";
     signatureViewController.amountText = @"5.99 €";
-    signatureViewController.signatureText = @"I hereby authorize the 5.99 € payment to Fruit Shop.";
+    signatureViewController.signatureText = @"I hereby authorize the payment of € 5.99 to Fruit Shop.";
     signatureViewController.signatureColor = [UIColor darkGrayColor];
     signatureViewController.payButtonText = @"Pay";
     signatureViewController.cancelButtonText = @"Cancel";

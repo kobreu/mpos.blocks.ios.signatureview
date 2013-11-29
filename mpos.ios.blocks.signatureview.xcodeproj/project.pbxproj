@@ -137,7 +137,6 @@
 		CF159BD11823B7C700A797FE = {
 			isa = PBXGroup;
 			children = (
-				CFCD7208182BC256004519B4 /* Resources */,
 				CF136A961823E293000DC47E /* External */,
 				CF4B565118426BF9002687E0 /* MPBSignatureView */,
 				CF159BE31823B7C700A797FE /* mpos.ios.blocks.signatureview */,
@@ -177,7 +176,6 @@
 			children = (
 				CF4B564E18426BCE002687E0 /* MPBTestViewController.h */,
 				CF4B564F18426BCE002687E0 /* MPBTestViewController.m */,
-				CFCD720E182D0477004519B4 /* iPad */,
 				CF159BEC1823B7C700A797FE /* MPBAppDelegate.h */,
 				CF159BED1823B7C700A797FE /* MPBAppDelegate.m */,
 				CF159BEF1823B7C700A797FE /* Main.storyboard */,
@@ -228,20 +226,6 @@
 			);
 			name = MPBSignatureView;
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		CFCD7208182BC256004519B4 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		CFCD720E182D0477004519B4 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
