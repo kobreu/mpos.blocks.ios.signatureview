@@ -25,10 +25,13 @@
 
 #import <UIKit/UIKit.h>
 #import "cocos2d/cocos2d.h"
-
-@interface MPBSignatureFieldViewController : UIViewController <CCDirectorDelegate>
+#import "LineDrawer.h"
+@interface MPBSignatureFieldViewController : UIViewController <CCDirectorDelegate,LineDrawerDelegate>
 
 @property (nonatomic, weak) CCGLView* signatureView;
+
+@property (nonatomic, copy) void (^onSignatureClear)();
+@property (nonatomic, copy) void (^onSignatureChange)();
 
 - (void)setupSignatureFieldWithFrame:(CGRect)frame;
 - (void)setupSignatureFieldWithView:(UIView*)view;
