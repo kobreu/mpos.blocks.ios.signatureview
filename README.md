@@ -3,10 +3,10 @@
 Kickstart your development of iOS payment applications with often-used payment application components by payworks! mpos payment blocks are free-to-use UI components such as fields for capturing customer signatures, … (more to come!) taking the programming burden out of your hands and letting you focus on creating awesome applications.
 
 The payment blocks are made available on our CocoaPod podspec repository. To use the payment blocks, add 
-http://pods.mpymnt.com/io.mpymnt.repo.pods.git
+http://pods.mpymnt.com/mpymnt/io.mpymnt.repo.pods.git
 as a custom pod repository. If you want to add it using the name 'mcommerce', you could just execute
 
-    pod repo add mcommerce http://pods.mpymnt.com/io.mpymnt.repo.pods.git
+    pod repo add mcommerce http://pods.mpymnt.com/mpymnt/io.mpymnt.repo.pods.git
 
 ## SignatureView
 
@@ -114,3 +114,5 @@ The additional tearDownSignatureField method should be called whenever the contr
 The OpenGL graphics for displaying the signature in real time are handled by the Cocos2d framework. (http://www.cocos2d-iphone.org)
 
 The signature drawing heavily depends on Krzysztof Zablockis smooth drawing library for Cocos2d and his CCNode+SFGestureRecognizer category. Credits for the drawing go to him. Check out his blog at http://merowing.info and the github project of the smooth drawing library at https://github.com/krzysztofzablocki/smooth-drawing
+
+Also, thanks to Alexander Mack for his contributions concerning the line drawer events.

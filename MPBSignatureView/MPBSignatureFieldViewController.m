@@ -32,6 +32,8 @@
 @property (nonatomic, weak) CCDirectorIOS *director;
 @property (nonatomic, weak) LineDrawer *lineDrawer;
 
+@property (nonatomic, weak) UIView *viewToAdd;
+
 @property (nonatomic, weak) UIColor* signatureColor;
 @property CGRect frame;
 
@@ -64,10 +66,12 @@
 
 - (void)setupSignatureFieldWithView:(UIView*)view {
     self.frame = view.frame;
+    self.viewToAdd = view;
 }
 
 - (void)setupSignatureFieldWithFrame:(CGRect)frame {
     self.frame = frame;
+    self.viewToAdd = self.view;
 }
 
 - (void)setupSignatureField {
@@ -92,6 +96,7 @@
     CCScene *scene = [CCScene node];
     self.lineDrawer = [LineDrawer node];
     self.lineDrawer.color = self.signatureColor;
+    self.lineDrawer.delegate = self;
     [scene addChild:self.lineDrawer];
 	[self.director pushScene: scene];
     
@@ -148,6 +153,20 @@
 
 -(UIImage *)signature {
     return [self.lineDrawer drawing];
+}
+
+- (void)lineDrawerDidChange:(LineDrawer *)aDrawer;
+{
+    if(self.onSignatureChange) {
+        self.onSignatureChange();
+    }
+}
+
+- (void)lineDrawerDidClear:(LineDrawer *)aDrawer;
+{
+    if(self.onSignatureClear) {
+        self.onSignatureClear();
+    }
 }
 
 @end
