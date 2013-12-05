@@ -31,9 +31,11 @@
 #define SF_GESTURE_RECOGNIZERS_AUTO_ENABLE_TOUCH_ON_NEW_GESTURE_RECOGNIZER 0
 
 
+static NSString *const kSFGestureClassPrefix = @"sfg_";
+
 @interface UIGestureRecognizer (SFGestureRecognizers)
 #if SF_GESTURE_RECOGNIZERS_USE_SHORTHAND
-@property(nonatomic, readonly) CCNode *node;
+@property (nonatomic, readonly) CCNode *node;
 #else
 @property (nonatomic, readonly) CCNode *sf_node;
 #endif
@@ -42,18 +44,15 @@
 @interface CCNode (SFGestureRecognizers)
 
 #if SF_GESTURE_RECOGNIZERS_USE_SHORTHAND
-@property(nonatomic, assign) BOOL isTouchEnabled;
-@property(nonatomic, assign) CGRect touchRect;
+@property (nonatomic, assign) BOOL isTouchEnabled;
+@property (nonatomic, assign) CGRect touchRect;
 
-- (void)addGestureRecognizer:(UIGestureRecognizer *)aGestureRecognizer;
+- (void)addGestureRecognizer:(UIGestureRecognizer*)aGestureRecognizer;
+- (void)removeGestureRecognizer:(UIGestureRecognizer*)aGestureRecognizer;
+- (NSArray*)gestureRecognizers;
 
-- (void)removeGestureRecognizer:(UIGestureRecognizer *)aGestureRecognizer;
-
-- (NSArray *)gestureRecognizers;
-
-// check if point is in touch area, node is visible and running and isTouchEnabled is set 
+// check if point is in touch area, node is visible and running and isTouchEnabled is set
 - (BOOL)isPointTouchableInArea:(CGPoint)pt;
-
 - (BOOL)isNodeInTreeTouched:(CGPoint)pt;
 
 // check if point is in touch area, node is visible and running, ignores isTouchEnabled
@@ -66,7 +65,7 @@
 - (void)sf_removeGestureRecognizer:(UIGestureRecognizer*)aGestureRecognizer;
 - (NSArray*)sf_gestureRecognizers;
 
-// check if point is in touch area, node is visible and running and isTouchEnabled is set 
+// check if point is in touch area, node is visible and running and isTouchEnabled is set
 - (BOOL)sf_isPointTouchableInArea:(CGPoint)pt;
 - (BOOL)sf_isNodeInTreeTouched:(CGPoint)pt;
 
