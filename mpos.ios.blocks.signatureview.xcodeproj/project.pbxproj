@@ -27,8 +27,8 @@
 		CF159C071823B7C700A797FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF159C051823B7C700A797FE /* InfoPlist.strings */; };
 		CF159C091823B7C700A797FE /* mpos_ios_blocks_signatureviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF159C081823B7C700A797FE /* mpos_ios_blocks_signatureviewTests.m */; };
 		CF4B565018426BCE002687E0 /* MPBTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4B564F18426BCE002687E0 /* MPBTestViewController.m */; };
-		CF4B565C18426DCA002687E0 /* MPBSignatureFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4B565918426DCA002687E0 /* MPBSignatureFieldViewController.m */; };
-		CF4B565D18426DCA002687E0 /* MPBSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4B565B18426DCA002687E0 /* MPBSignatureViewController.m */; };
+		CFAB7D2F185375C30013D538 /* MPBSignatureFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAB7D2C185375C30013D538 /* MPBSignatureFieldViewController.m */; };
+		CFAB7D30185375C30013D538 /* MPBSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAB7D2E185375C30013D538 /* MPBSignatureViewController.m */; };
 		CFD7FBC11823BF2C0087E696 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD7FBC01823BF2C0087E696 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,10 +72,10 @@
 		CF159C081823B7C700A797FE /* mpos_ios_blocks_signatureviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mpos_ios_blocks_signatureviewTests.m; sourceTree = "<group>"; };
 		CF4B564E18426BCE002687E0 /* MPBTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPBTestViewController.h; sourceTree = "<group>"; };
 		CF4B564F18426BCE002687E0 /* MPBTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPBTestViewController.m; sourceTree = "<group>"; };
-		CF4B565818426DCA002687E0 /* MPBSignatureFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPBSignatureFieldViewController.h; path = MPBSignatureView/MPBSignatureFieldViewController.h; sourceTree = SOURCE_ROOT; };
-		CF4B565918426DCA002687E0 /* MPBSignatureFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPBSignatureFieldViewController.m; path = MPBSignatureView/MPBSignatureFieldViewController.m; sourceTree = SOURCE_ROOT; };
-		CF4B565A18426DCA002687E0 /* MPBSignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPBSignatureViewController.h; path = MPBSignatureView/MPBSignatureViewController.h; sourceTree = SOURCE_ROOT; };
-		CF4B565B18426DCA002687E0 /* MPBSignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPBSignatureViewController.m; path = MPBSignatureView/MPBSignatureViewController.m; sourceTree = SOURCE_ROOT; };
+		CFAB7D2B185375C30013D538 /* MPBSignatureFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPBSignatureFieldViewController.h; sourceTree = "<group>"; };
+		CFAB7D2C185375C30013D538 /* MPBSignatureFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPBSignatureFieldViewController.m; sourceTree = "<group>"; };
+		CFAB7D2D185375C30013D538 /* MPBSignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPBSignatureViewController.h; sourceTree = "<group>"; };
+		CFAB7D2E185375C30013D538 /* MPBSignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPBSignatureViewController.m; sourceTree = "<group>"; };
 		CFD7FBC01823BF2C0087E696 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				CF136A961823E293000DC47E /* External */,
-				CF4B565118426BF9002687E0 /* MPBSignatureView */,
+				CFAB7D2A185375C30013D538 /* mpos.blocks.signature */,
 				CF159BE31823B7C700A797FE /* mpos.ios.blocks.signatureview */,
 				CF159C021823B7C700A797FE /* mpos.ios.blocks.signatureviewTests */,
 				CF159BDC1823B7C700A797FE /* Frameworks */,
@@ -216,16 +216,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CF4B565118426BF9002687E0 /* MPBSignatureView */ = {
+		CFAB7D2A185375C30013D538 /* mpos.blocks.signature */ = {
 			isa = PBXGroup;
 			children = (
-				CF4B565818426DCA002687E0 /* MPBSignatureFieldViewController.h */,
-				CF4B565918426DCA002687E0 /* MPBSignatureFieldViewController.m */,
-				CF4B565A18426DCA002687E0 /* MPBSignatureViewController.h */,
-				CF4B565B18426DCA002687E0 /* MPBSignatureViewController.m */,
+				CFAB7D2B185375C30013D538 /* MPBSignatureFieldViewController.h */,
+				CFAB7D2C185375C30013D538 /* MPBSignatureFieldViewController.m */,
+				CFAB7D2D185375C30013D538 /* MPBSignatureViewController.h */,
+				CFAB7D2E185375C30013D538 /* MPBSignatureViewController.m */,
 			);
-			name = MPBSignatureView;
-			path = Resources;
+			path = mpos.blocks.signature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,8 +366,8 @@
 				CF159BEA1823B7C700A797FE /* main.m in Sources */,
 				CF136A9A1823E293000DC47E /* CCNode+SFGestureRecognizers.m in Sources */,
 				CF159BF41823B7C700A797FE /* MPBViewController.m in Sources */,
-				CF4B565C18426DCA002687E0 /* MPBSignatureFieldViewController.m in Sources */,
-				CF4B565D18426DCA002687E0 /* MPBSignatureViewController.m in Sources */,
+				CFAB7D2F185375C30013D538 /* MPBSignatureFieldViewController.m in Sources */,
+				CFAB7D30185375C30013D538 /* MPBSignatureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
