@@ -4,9 +4,9 @@ Kickstart your development of iOS payment applications with often-used payment a
 
 The payment blocks are made available on our CocoaPod podspec repository. To use the payment blocks, add 
 http://pods.mpymnt.com/mpymnt/io.mpymnt.repo.pods.git
-as a custom pod repository. If you want to add it using the name 'mcommerce', you could just execute
+as a custom pod repository. If you want to add it using the name 'mpymnt', you could just execute
 
-    pod repo add mcommerce http://pods.mpymnt.com/mpymnt/io.mpymnt.repo.pods.git
+    pod repo add mpymnt http://pods.mpymnt.com/io.mpymnt.repo.pods.git
 
 ## SignatureView
 
@@ -17,13 +17,13 @@ The SignatureView enables you to capture a customer's signature drawn on the tou
 To use the SignatureView in your project, you should have an Xcode project with CocoaPods (http://cocoapods.org) available. Make sure you have added the mpos payment blocks specs repository. Then, create your podfile for the dependencies 
 
     platform :ios, '6.1'
-    pod 'MPBSignatureView', '~> 0.2.1'
+    pod 'mpos.blocks.signature', '~> 1.2.0'
 
-Running `pod install` might take a while, since the Cocos2d framework, on which the signature view depends has about 450 MB which have to be downloaded.
+Running `pod install` might take a while, since the Cocos2d framework, on which the signature view depends has about 450 MB which have to be downloaded. Don't worry, this will not all be compiled into your app.
 
 ### Use the predefined signature screen
 
-![signature view](http://thpnetz.de/pw/signature.png "Signature View")
+![signature view](https://bitbucket.org/payworks/mpos.ios.blocks.signatureview/raw/b9bb9a553242d9a5150f4b20cda018abaf04644d/screen.png "Signature View")
 
 To start right away, you can use the predefined view controller which shows a signature screen with some information to the user. To capture a signature, create a PWBSignatureViewController instance first.
 
