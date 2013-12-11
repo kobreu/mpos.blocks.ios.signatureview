@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB011317D4C84A25A715D98B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E57B43C87F4EABBBABE515 /* libPods.a */; };
+		CF076A111858C7AB001E072C /* temp_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = CF076A101858C7AB001E072C /* temp_dot.png */; };
 		CF136A9A1823E293000DC47E /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = CF136A991823E293000DC47E /* CCNode+SFGestureRecognizers.m */; };
 		CF136A9F1823E4E0000DC47E /* LineDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF136A9E1823E4E0000DC47E /* LineDrawer.m */; };
 		CF136AAE1823F609000DC47E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF136AAA1823F5D3000DC47E /* OpenAL.framework */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		09E57B43C87F4EABBBABE515 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BCC908690742ECBC945A40 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		CF076A101858C7AB001E072C /* temp_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temp_dot.png; sourceTree = "<group>"; };
 		CF136A981823E293000DC47E /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		CF136A991823E293000DC47E /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		CF136A9D1823E4E0000DC47E /* LineDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineDrawer.h; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF076A0F1858C7AB001E072C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CF076A101858C7AB001E072C /* temp_dot.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CF136A961823E293000DC47E /* External */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 		CF159BD11823B7C700A797FE = {
 			isa = PBXGroup;
 			children = (
+				CF076A0F1858C7AB001E072C /* Resources */,
 				CF136A961823E293000DC47E /* External */,
 				CFAB7D2A185375C30013D538 /* mpos.blocks.signature */,
 				CF159BE31823B7C700A797FE /* mpos.ios.blocks.signatureview */,
@@ -309,6 +320,7 @@
 				CF159BF61823B7C700A797FE /* Images.xcassets in Resources */,
 				CF159BE81823B7C700A797FE /* InfoPlist.strings in Resources */,
 				CF159BF11823B7C700A797FE /* Main.storyboard in Resources */,
+				CF076A111858C7AB001E072C /* temp_dot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

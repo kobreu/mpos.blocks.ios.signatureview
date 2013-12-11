@@ -122,11 +122,12 @@
     self.signatureLineView.backgroundColor = self.colorLine;
     
     self.topBackground = [[UIView alloc]initWithFrame:CGRectMake(-2, -2, self.bounds.size.height+4,self.bounds.origin.y+46)];
+    self.bottomBackground = [[UIView alloc]initWithFrame:CGRectMake(-2, self.bounds.size.width-44, self.bounds.size.height+4,46)];
+    
     self.topBackground.backgroundColor = self.colorBackground;
     [self.topBackground.layer setBorderWidth:0.5f];
     [self.topBackground.layer setBorderColor:self.colorLine.CGColor];
     
-    self.bottomBackground = [[UIView alloc]initWithFrame:CGRectMake(-2, self.bounds.size.width-44, self.bounds.size.height+4,46)];
     self.bottomBackground.backgroundColor = self.colorBackground;
     [self.bottomBackground.layer setBorderWidth:0.7f];
     [self.bottomBackground.layer setBorderColor:self.colorLine.CGColor];
