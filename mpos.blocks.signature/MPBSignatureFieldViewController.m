@@ -24,15 +24,13 @@
  */
 
 #import "MPBSignatureFieldViewController.h"
-#import "cocos2d/cocos2d.h"
+#import "MPBCocos2d/cocos2d.h"
 #import "LineDrawer.h"
 
 @interface MPBSignatureFieldViewController ()
 
 @property (nonatomic, weak) CCDirectorIOS *director;
 @property (nonatomic, weak) LineDrawer *lineDrawer;
-
-@property (nonatomic, weak) UIView *viewToAdd;
 
 @property (nonatomic, weak) UIColor* signatureColor;
 @property CGRect frame;
@@ -66,7 +64,7 @@
 
 - (void)setupSignatureFieldWithView:(UIView*)view {
     self.frame = view.frame;
-    self.viewToAdd = view;
+    self.viewToAdd = self.view;
 }
 
 - (void)setupSignatureFieldWithFrame:(CGRect)frame {
@@ -100,7 +98,7 @@
     [scene addChild:self.lineDrawer];
 	[self.director pushScene: scene];
     
-    [self.view addSubview:self.signatureView];
+    [self.viewToAdd addSubview:self.signatureView];
 }
 
 -(void)willMoveToParentViewController:(UIViewController *)parent {
